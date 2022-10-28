@@ -1,34 +1,35 @@
-﻿using System;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GenericDemo
+namespace GenericsMaximumProblem
 {
-    public class MaximumStringNumberPrint<T> where T : IComparable
+    public class MaximumStringUC3
     {
-        public static String MaximumFloatNumber(string num1, string num2, string num3)
+        string first_String, second_String, third_String;
+        public void GetInput()                      //Input for 3 numbers
         {
-            if (num1.CompareTo(num2) > 0 && num1.CompareTo(num3) > 0 ||
-                num1.CompareTo(num2) >= 0 && num1.CompareTo(num3) > 0 ||
-                num1.CompareTo(num2) > 0 && num1.CompareTo(num3) >= 0)
-            {
-                return num1;
-            }
-            if (num2.CompareTo(num1) > 0 && num2.CompareTo(num3) > 0 ||
-                num2.CompareTo(num1) >= 0 && num2.CompareTo(num3) > 0 ||
-                num2.CompareTo(num1) > 0 && num2.CompareTo(num3) >= 0)
-            {
-                return num2;
-            }
-            if (num3.CompareTo(num1) > 0 && num3.CompareTo(num2) > 0 ||
-               num3.CompareTo(num1) >= 0 && num3.CompareTo(num2) > 0 ||
-               num3.CompareTo(num1) > 0 && num3.CompareTo(num2) >= 0)
-            {
-                return num3;
-            }
-            return num1;
+            Console.Write("Enter First String = ");
+            first_String = Console.ReadLine();
+            Console.Write("Enter Second String = ");
+            second_String = Console.ReadLine();
+            Console.Write("Enter Third String = ");
+            third_String = Console.ReadLine();
         }
+        public void Compare()                        //comparing between numbers
+        {
+            if (first_String.CompareTo(second_String) >= 0 && first_String.CompareTo(third_String) >= 0)
+                Console.WriteLine("Greatest String is = " + first_String);
+            else if (second_String.CompareTo(first_String) >= 0 && second_String.CompareTo(third_String) >= 0)
+                Console.WriteLine("Greatest String is = " + second_String);
+            else if (third_String.CompareTo(second_String) >= 0 && third_String.CompareTo(first_String) >= 0)
+                Console.WriteLine("Greatest String is = " + third_String);
+            else
+                Console.WriteLine("Greatest String is = " + first_String);
+        }
+
     }
 }
