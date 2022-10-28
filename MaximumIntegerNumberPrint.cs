@@ -1,34 +1,34 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GenericDemo
+namespace GenericsMaximumProblem
 {
-    public class MaximumIntegerNumberPrint<T> where T : IComparable
+    public class MaximumInt
     {
-        public static int MaximumIntegerNumber(int num1, int num2, int num3)
+        int first_Number, second_Number, third_Number;
+        public void GetInput()                      //Input for 3 numbers
         {
-            if (num1.CompareTo(num2) > 0 && num1.CompareTo(num3) > 0 ||
-                num1.CompareTo(num2) >= 0 && num1.CompareTo(num3) > 0 ||
-                num1.CompareTo(num2) > 0 && num1.CompareTo(num3) >= 0)
-            {
-                return num1;
-            }
-            if (num2.CompareTo(num1) > 0 && num2.CompareTo(num3) > 0 ||
-                num2.CompareTo(num1) >= 0 && num2.CompareTo(num3) > 0 ||
-                num2.CompareTo(num1) > 0 && num2.CompareTo(num3) >= 0)
-            {
-                return num2;
-            }
-            if (num3.CompareTo(num1) > 0 && num3.CompareTo(num2) > 0 ||
-               num3.CompareTo(num1) >= 0 && num3.CompareTo(num2) > 0 ||
-               num3.CompareTo(num1) > 0 && num3.CompareTo(num2) >= 0)
-            {
-                return num3;
-            }
-            return num1;
+            Console.Write("Enter First Number = ");
+            first_Number = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter Second Number = ");
+            second_Number = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter Third Number = ");
+            third_Number = Convert.ToInt32(Console.ReadLine());
         }
+        public void Compare()                        //comparing between numbers
+        {
+            if (first_Number.CompareTo(second_Number) >= 0 && first_Number.CompareTo(third_Number) >= 0)
+                Console.WriteLine("Greatest Number is = " + first_Number);
+            else if (second_Number.CompareTo(first_Number) >= 0 && second_Number.CompareTo(third_Number) >= 0)
+                Console.WriteLine("Greatest Number is = " + second_Number);
+            else if (third_Number.CompareTo(second_Number) >= 0 && third_Number.CompareTo(first_Number) >= 0)
+                Console.WriteLine("Greatest Number is = " + third_Number);
+            else
+                Console.WriteLine("Greatest Number is = " + first_Number);
+        }
+
     }
 }
