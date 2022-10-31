@@ -1,39 +1,27 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GenericDemo
+namespace GenericsMaximumProblem
 {
-    public class ExtendTheMax<T> where T : IComparable
+    public class PrintMaximumUC5
     {
-        public T[] value;
-
-        public ExtendTheMax(T[] value)
+        public void TestMaximum<T>(T first_Value, T second_Value, T third_Value) where T : IComparable
         {
-            this.value = value;
+            if (first_Value.CompareTo(second_Value) >= 0 && first_Value.CompareTo(third_Value) >= 0)
+                PrintMax<T>(first_Value);
+            else if (second_Value.CompareTo(first_Value) >= 0 && second_Value.CompareTo(third_Value) >= 0)
+                PrintMax<T>(second_Value);
+            else if (third_Value.CompareTo(second_Value) >= 0 && third_Value.CompareTo(first_Value) >= 0)
+                PrintMax<T>(second_Value);
+            else
+                Console.WriteLine("Greatest Word is = " + first_Value);
         }
-
-        public T[] Sort(T[] values)
+        public void PrintMax<T>(T max)
         {
-            Array.Sort(values);
-            return values;
-        }
-        public T MaxValue(params T[] values)
-        {
-            var sorted_values = Sort(values);
-            return sorted_values[^1];
-        }
-        public T MaxMethod()
-        {
-            var max = MaxValue(this.value);
-            return max;
-        }
-        public void PrintMaxValue()
-        {
-            var max = MaxValue(this.value);
-            Console.WriteLine("Maximum value is " + max);
+            Console.WriteLine("Greatest Value is = " + max);
         }
     }
 }
